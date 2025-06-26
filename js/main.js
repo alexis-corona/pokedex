@@ -1,5 +1,5 @@
-const PokemonList = document.querySelector("#PokemonList");
-const botonesHeader = document.querySelectorAll(".btn-header");
+const pokemonList = document.querySelector("#pokemonList");
+const headerButtons = document.querySelectorAll(".btn-header");
 let URL = "https://pokeapi.co/api/v2/pokemon/";
 let allPokemon = [];
 
@@ -14,7 +14,7 @@ async function loadAllPokemon() {
 }
 
 function showAllPokemon(pokemon) {
-    PokemonList.innerHTML = "";
+    pokemonList.innerHTML = "";
     pokemon.forEach(poke => showPokemon(poke));
 }
 
@@ -44,11 +44,11 @@ function showPokemon(poke) {
             </div>
         </div>
     `;
-    PokemonList.append(div);
+    pokemonList.append(div);
 }
 
 // Filter with the array already loaded
-botonesHeader.forEach(boton => {
+headerButtons.forEach(boton => {
     boton.addEventListener("click", () => {
         const botonId = boton.id;
         if (botonId === "see-all") {

@@ -5,12 +5,16 @@ let allPokemon = [];
 
 // Load all Pokemon at startup
 async function loadAllPokemon() {
+    const loader = document.getElementById("loader");
+    loader.style.display = "flex";
     const promises = [];
     for (let i = 1; i <= 1025; i++) {
         promises.push(fetch(URL + i).then(res => res.json()));
     }
     allPokemon = await Promise.all(promises);
     showAllPokemon(allPokemon);
+
+    loader.style.display = "none";
 }
 
 function showAllPokemon(pokemon) {
